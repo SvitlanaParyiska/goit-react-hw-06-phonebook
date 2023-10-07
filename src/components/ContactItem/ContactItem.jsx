@@ -1,7 +1,15 @@
 import React from 'react';
 import { Button, Item } from './ContactItem.styled';
+import { useDispatch } from 'react-redux';
+import { deleteContacts } from 'redux/contactsSlice';
 
-const ContactItem = ({ contact, handleDelete }) => {
+const ContactItem = ({ contact }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = contactId => {
+    dispatch(deleteContacts(contactId));
+  };
+
   return (
     <Item>
       <p>
